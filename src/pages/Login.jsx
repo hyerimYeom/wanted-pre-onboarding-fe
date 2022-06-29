@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import React, { useState } from 'react';
-// import '../styles/login.css';
+import '../styles/login.css';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -19,7 +19,7 @@ const Login = () => {
   //   const [password, setPassword] = useState('');
   console.log(formData);
   return (
-    <div>
+    <div className={'loginBar'}>
       <input
         type="text"
         value={formData.id}
@@ -28,13 +28,13 @@ const Login = () => {
         onChange={formHandleChange}
       />
       <input
-        type="text"
+        type="password"
         value={formData.password}
         name="password"
         placeholder={'password'}
         onChange={formHandleChange}
       />
-      butt
+      <button>로그인</button>
     </div>
   );
 };
