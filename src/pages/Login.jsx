@@ -8,6 +8,22 @@ const Login = () => {
     password: '',
   });
 
+  console.log(formData);
+  const [checkLogin, setCheckLogin] = useState(false);
+
+  useEffect(() => {
+    if (checkLogin) {
+      localStorage.setItem('formData', JSON.stringify(formData));
+    }
+  }, [formData]);
+
+  const tryLogin = () => {
+    setCheckLogin(true);
+    setFormData({ ...formData });
+  };
+
+  // function tryLogin() {}
+
   function formHandleChange(event) {
     setFormData((prevFromData) => {
       return {
@@ -30,13 +46,14 @@ const Login = () => {
         />
         <input
           className={'input'}
-          type="password"
+          type="current-password"
           value={formData.password}
           name="password"
           placeholder={'password'}
           onChange={formHandleChange}
         />
-        <button onClick={checkLogin}>로그인</button>
+        <button onClick={tryLogin}>로그인</button>
+        {/* </form> */}
       </div>
     </div>
   );
