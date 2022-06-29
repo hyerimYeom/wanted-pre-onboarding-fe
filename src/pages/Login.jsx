@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/login.css';
 
 const Login = () => {
@@ -16,25 +16,28 @@ const Login = () => {
       };
     });
   }
-  //   const [password, setPassword] = useState('');
-  console.log(formData);
+
   return (
-    <div className={'loginBar'}>
-      <input
-        type="text"
-        value={formData.id}
-        name="id"
-        placeholder="id"
-        onChange={formHandleChange}
-      />
-      <input
-        type="password"
-        value={formData.password}
-        name="password"
-        placeholder={'password'}
-        onChange={formHandleChange}
-      />
-      <button>로그인</button>
+    <div className={'container'}>
+      <div className={'loginBar'}>
+        <input
+          className={'input'}
+          type="text"
+          value={formData.id}
+          name="id"
+          placeholder="id"
+          onChange={formHandleChange}
+        />
+        <input
+          className={'input'}
+          type="password"
+          value={formData.password}
+          name="password"
+          placeholder={'password'}
+          onChange={formHandleChange}
+        />
+        <button onClick={checkLogin}>로그인</button>
+      </div>
     </div>
   );
 };
